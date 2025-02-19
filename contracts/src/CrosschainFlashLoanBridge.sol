@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.25;
+pragma solidity ^0.8.26;
 
 import {IERC20} from "@openzeppelin-contracts/interfaces/IERC20.sol";
 import {FlashLoanVault} from "./FlashLoanVault.sol";
@@ -62,12 +62,16 @@ contract CrosschainFlashLoanBridge {
             destinationChain,
             address(this),
             abi.encodeWithSelector(
-                this.executeCrosschainFlashLoan.selector, sendERC20MsgHash, block.chainid, msg.sender, amount, target, data
+                this.executeCrosschainFlashLoan.selector,
+                sendERC20MsgHash,
+                block.chainid,
+                msg.sender,
+                amount,
+                target,
+                data
             )
         );
     }
-
-   
 
     /// @notice Executes the flash loan on the destination chain and returns tokens
     /// @param sendERC20MsgHash The hash of the message responsible for sending the ERC20 tokens to the destination chain

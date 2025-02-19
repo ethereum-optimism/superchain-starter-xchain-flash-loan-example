@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.25;
+pragma solidity ^0.8.26;
 
-import {SuperchainERC20} from "./SuperchainERC20.sol";
+import {SuperchainERC20} from "@interop-lib/SuperchainERC20.sol";
 
 contract CrosschainFlashLoanToken is SuperchainERC20 {
     string private constant _name = "XChainFlashLoan";

@@ -9,44 +9,30 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
-import { useWriteContract, useWaitForTransactionReceipt, useReadContract } from 'wagmi';
+import { useWriteContract, useWaitForTransactionReceipt, useReadContract, useConfig } from 'wagmi';
 import { supersimL2A, supersimL2B } from '@eth-optimism/viem/chains';
 import { privateKeyToAccount } from 'viem/accounts';
 import { type Chain, encodeFunctionData, parseEther } from 'viem';
 import { TOKEN_ABI, FLASH_LOAN_BRIDGE_ABI, TARGET_CONTRACT_ABI } from '@/abi/contracts';
 import { DirectionSelector } from '@/components/DirectionSelector';
 import { AmountInput } from '@/components/AmountInput';
-import type { Abi, AbiFunction } from 'abitype';
-
+import { waitForTransactionReceipt } from '@wagmi/core';
 // Configuration
 const CONFIG = {
   devAccount: privateKeyToAccount(
     '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'
   ),
   supportedChains: [supersimL2A, supersimL2B] as Chain[],
-  flashLoanBridgeAddress: '0xd3c51ed9a0dcab74afc011f4f662a65e2cfd949b',
-  tokenAddress: '0x820e6303d954e083be1d6051eabc97636a7e468a',
-  targetContractAddress: '0x14927f49b13cc09cff9cb132b6a8e3318b724f19',
+  flashLoanBridgeAddress: '0xf592ee4112e6e53f94c895441b780bcd0a751df8',
+  tokenAddress: '0x31788d4c29183a22640442dfe50828ba20f973b4',
+  targetContractAddress: '0x8bb0629bae13ed9a54571d0c594c034bd258d300',
   flatFee: parseEther('0.01'),
 } as const;
 
-function encodeAbiParameters(abi: Abi, functionName: string, args: unknown[]) {
-  const functionAbi = abi.find(
-    (item): item is AbiFunction => item.type === 'function' && item.name === functionName
-  );
-  if (!functionAbi) throw new Error(`Function ${functionName} not found in ABI`);
-  
-  return encodeFunctionData({
-    abi: [functionAbi],
-    functionName,
-    args,
-  });
-}
-
 const TokenMintCard = () => {
   const [mintAmount, setMintAmount] = useState<bigint>(parseEther('1000'));
-  
-  const { data: bridgeBalance } = useReadContract({
+
+  const { data: bridgeBalance, refetch } = useReadContract({
     address: CONFIG.tokenAddress,
     abi: TOKEN_ABI,
     functionName: 'balanceOf',
@@ -54,7 +40,20 @@ const TokenMintCard = () => {
     chainId: CONFIG.supportedChains[0].id,
   });
 
-  const { data, writeContract, isPending } = useWriteContract();
+  const config = useConfig();
+
+  const { data, writeContract, isPending } = useWriteContract({
+    mutation: {
+      onSuccess: async hash => {
+        await waitForTransactionReceipt(config, {
+          hash,
+          chainId: CONFIG.supportedChains[0].id,
+        });
+        refetch();
+      },
+    },
+  });
+
   const { isLoading: isWaitingForReceipt } = useWaitForTransactionReceipt({
     hash: data,
     chainId: CONFIG.supportedChains[0].id,
@@ -74,7 +73,7 @@ const TokenMintCard = () => {
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <AmountInput amount={mintAmount} setAmount={setMintAmount} />
-        
+
         <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm">
           <div className="flex justify-between">
             <span className="text-sm text-muted-foreground">Bridge Token Balance:</span>
@@ -116,14 +115,14 @@ const FlashLoanCard = () => {
 
   const [amount, setAmount] = useState<bigint>(parseEther('1'));
 
-  const { data: targetValue } = useReadContract({
+  const { data: targetValue, refetch: refetchTargetValue } = useReadContract({
     address: CONFIG.targetContractAddress,
     abi: TARGET_CONTRACT_ABI,
     functionName: 'getValue',
     chainId: direction.destination.id,
   });
 
-  const { data: tokenBalance } = useReadContract({
+  const { data: tokenBalance, refetch: refetchTokenBalance } = useReadContract({
     address: CONFIG.tokenAddress,
     abi: TOKEN_ABI,
     functionName: 'balanceOf',
@@ -131,7 +130,20 @@ const FlashLoanCard = () => {
     chainId: direction.destination.id,
   });
 
-  const { data, writeContract, isPending } = useWriteContract();
+  const config = useConfig();
+  const { data, writeContract, isPending, error } = useWriteContract({
+    mutation: {
+      onSuccess: async hash => {
+        await waitForTransactionReceipt(config, {
+          hash,
+          chainId: direction.source.id,
+        });
+        refetchTargetValue();
+        refetchTokenBalance();
+      },
+    },
+  });
+
   const { isLoading: isWaitingForReceipt } = useWaitForTransactionReceipt({
     hash: data,
     chainId: direction.source.id,
@@ -176,11 +188,11 @@ const FlashLoanCard = () => {
           className="w-full"
           disabled={isPending || isWaitingForReceipt}
           onClick={() => {
-            const callData = encodeAbiParameters(
-              TARGET_CONTRACT_ABI as Abi,
-              'setValue',
-              [CONFIG.tokenAddress]
-            );
+            const callData = encodeFunctionData({
+              abi: TARGET_CONTRACT_ABI,
+              functionName: 'setValue',
+              args: [CONFIG.tokenAddress],
+            });
 
             writeContract({
               account: CONFIG.devAccount,

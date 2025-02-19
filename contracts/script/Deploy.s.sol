@@ -6,8 +6,10 @@ import {Vm} from "forge-std/Vm.sol";
 import {ICreateX} from "createx/ICreateX.sol";
 
 import {DeployUtils} from "../libraries/DeployUtils.sol";
-import {CrossChainCounter} from "../src/CrossChainCounter.sol";
-import {RemoteMultisend} from "../src/RemoteMultisend.sol";
+import {FlashLoanVault} from "../src/FlashLoanVault.sol";
+import {CrosschainFlashLoanToken} from "../src/CrosschainFlashLoanToken.sol";
+import {CrosschainFlashLoanBridge} from "../src/CrosschainFlashLoanBridge.sol";
+import {TargetContract} from "../src/TargetContract.sol";
 
 // Example forge script for deploying as an alternative to sup: super-cli (https://github.com/ethereum-optimism/super-cli)
 contract Deploy is Script {
@@ -27,19 +29,37 @@ contract Deploy is Script {
 
             console.log("Deploying to RPC: ", rpcUrl);
             vm.createSelectFork(rpcUrl);
-            deployCrossChainCounterContract();
-            deployRemoteMultisendContract();
+            deployFlashLoanVault();
+            deployCrosschainFlashLoanToken();
+            deployCrosschainFlashLoanBridge();
+            deployTargetContract();
         }
     }
 
-    function deployCrossChainCounterContract() public broadcast returns (address addr_) {
-        bytes memory initCode = abi.encodePacked(type(CrossChainCounter).creationCode);
-        addr_ = DeployUtils.deployContract("CrossChainCounter", _implSalt(), initCode);
+    function deployFlashLoanVault() public broadcast returns (address addr_) {
+        bytes memory initCode = abi.encodePacked(type(FlashLoanVault).creationCode);
+        addr_ = DeployUtils.deployContract("FlashLoanVault", _implSalt(), initCode);
     }
 
-    function deployRemoteMultisendContract() public broadcast returns (address addr_) {
-        bytes memory initCode = abi.encodePacked(type(RemoteMultisend).creationCode);
-        addr_ = DeployUtils.deployContract("RemoteMultisend", _implSalt(), initCode);
+    function deployCrosschainFlashLoanToken() public broadcast returns (address addr_) {
+        bytes memory initCode = abi.encodePacked(type(CrosschainFlashLoanToken).creationCode);
+        addr_ = DeployUtils.deployContract("CrosschainFlashLoanToken", _implSalt(), initCode);
+    }
+
+    function deployCrosschainFlashLoanBridge() public broadcast returns (address addr_) {
+        address messenger = 0x820e6303D954E083be1d6051EABC97636A7e468A;
+        address token = 0x0884244AbBe2cCfDBFD413EE67E818707dA286e7;
+        uint256 minGas = 10000000000000000;
+        address owner = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+
+        bytes memory initCode =
+            abi.encodePacked(type(CrosschainFlashLoanBridge).creationCode, abi.encode(messenger, token, minGas, owner));
+        addr_ = DeployUtils.deployContract("CrosschainFlashLoanBridge", _implSalt(), initCode);
+    }
+
+    function deployTargetContract() public broadcast returns (address addr_) {
+        bytes memory initCode = abi.encodePacked(type(TargetContract).creationCode);
+        addr_ = DeployUtils.deployContract("TargetContract", _implSalt(), initCode);
     }
 
     /// @notice The CREATE2 salt to be used when deploying a contract.
