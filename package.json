@@ -63,7 +63,7 @@
     "globals": "^15.14.0",
     "mprocs": "^0.7.2",
     "prettier": "^3.5.0",
-    "supersim": "0.1.0-alpha.40",
+    "supersim": "^0.1.0-alpha.41",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0",
