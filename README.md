@@ -179,7 +179,7 @@ Start building on the Superchain!
 
 These contracts are not production ready.
 
-## 📚 More examples, docs
+## 📚 More resources
 
 - Interop recipes / guides: https://docs.optimism.io/app-developers/tutorials/interop
 - Superchain Dev Console: https://console.optimism.io/
