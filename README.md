@@ -110,7 +110,7 @@ The above check calls the L2ToL2CrossDomainMessenger.successfulMessages mapping 
 While you can revert using any custom error, it is recommended that such cases emit
 
 ```solidity
-error DependentMessageNotSuccessful(bytes32 msgHash)
+error RequiredMessageNotSuccessful(bytes32 msgHash)
 ```
 
 (which [`CrossDomainMessageLib.requireMessageSuccess`](https://github.com/ethereum-optimism/interop-lib/blob/main/src/libraries/CrossDomainMessageLib.sol) does under the hood)
