@@ -4,17 +4,17 @@ network = "supersim"
 
 [[contracts]]
 id = "FlashLoanVault"
-salt = "ethers"
+salt = "test-salt-0"
 forge_artifact_path = "contracts/out/FlashLoanVault.sol/FlashLoanVault.json"
 
 [[contracts]]
 id = "CrosschainFlashLoanToken"
-salt = "ethers"
+salt = "test-salt-0"
 forge_artifact_path = "contracts/out/CrosschainFlashLoanToken.sol/CrosschainFlashLoanToken.json"
 
 [[contracts]]
 id = "CrosschainFlashLoanBridge"
-salt = "ethers"
+salt = "test-salt-0"
 forge_artifact_path = "contracts/out/CrosschainFlashLoanBridge.sol/CrosschainFlashLoanBridge.json"
 constructor_args = [
   "{{CrosschainFlashLoanToken.address}}",
@@ -25,5 +25,5 @@ constructor_args = [
 
 [[contracts]]
 id = "TargetContract"
-salt = "ethers"
+salt = "test-salt-0"
 forge_artifact_path = "contracts/out/TargetContract.sol/TargetContract.json"
