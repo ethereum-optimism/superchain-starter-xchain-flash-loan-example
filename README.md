@@ -1,4 +1,4 @@
-# Superchain Starter Kit: CrossChainMultisend
+# Superchain Starter Kit: CrossChain Flash Loan Example
 
 > Generated from [superchain-starter](https://github.com/ethereum-optimism/superchain-starter). See the original repository for a more detailed development guide.
 >
