@@ -23,9 +23,9 @@ const CONFIG = {
     '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80'
   ),
   supportedChains: [supersimL2A, supersimL2B] as Chain[],
-  flashLoanBridgeAddress: '0x0aceabdb563a8c27e05b0d3f9f8fd8bc43d05cb3',
-  tokenAddress: '0x0f59e172c8d1a22665c270c5ef7df245be06f93d',
-  targetContractAddress: '0x72e7956df9422b1ba7867e17aa3702cd1250c8f5',
+  flashLoanBridgeAddress: '0xb41240aa708b86a45867de9b0fb4ec2a43c469ab',
+  tokenAddress: '0x4a8ca36c48c86b9b98ae3cf73d3993323eb108a5',
+  targetContractAddress: '0x778bc72fe1b7e543bb275501a97a289d6db5ffa1',
   flatFee: parseEther('0.01'),
 } as const;
 
