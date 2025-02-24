@@ -70,8 +70,8 @@ importers:
         specifier: ^9.19.0
         version: 9.20.0
       '@eth-optimism/super-cli':
-        specifier: ^0.0.10
-        version: 0.0.10(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))
+        specifier: ^0.0.11
+        version: 0.0.11(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
@@ -103,8 +103,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       supersim:
-        specifier: ^0.1.0-alpha.41
-        version: 0.1.0-alpha.41
+        specifier: 0.1.0-alpha.42
+        version: 0.1.0-alpha.42
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
@@ -417,8 +417,8 @@ packages:
     resolution: {integrity: sha512-lB05FkqEdUg2AA0xEbUz0SnkXT1LcCTa438W4IWTUh4hdOnVbQyOJ81OrDXsJk/LSiJHubgGEFoR5EHq1NsH1A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eth-optimism/super-cli@0.0.10':
-    resolution: {integrity: sha512-V+5WJcHcUJL10QGn1dOChhkpdKabvPNUbRyCCrW4iFZ7HoyphDZoIx+8NS+4ao7Iypf4RPUAFqZDUwoOr+Xtew==}
+  '@eth-optimism/super-cli@0.0.11':
+    resolution: {integrity: sha512-ZZXZM+0gS4Y+XhSVvqmQ3SdQrbixzEYdwu/ESRMFy/W2qIDfbPm9sIPrnSWtjC9YmW7sB0vuSTd+nDIgaGXobQ==}
     engines: {node: '>=18.20'}
     hasBin: true
 
@@ -3159,8 +3159,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  supersim@0.1.0-alpha.41:
-    resolution: {integrity: sha512-npxZkaMiGRvB63UgFqlsa3mQ0/Qfdic33bbxWbClgPaPslf4dACPb+yMAXva1IewDed55SFCJowp0n1k4PyHrg==}
+  supersim@0.1.0-alpha.42:
+    resolution: {integrity: sha512-DJLoJ0vkTtLWubde+uEE5739o8+jmVqFZK4FMIMtyC4d91brAQdBI5REJKSqVoYKWLYNXyEL36Gph2BoKw48aA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3952,7 +3952,7 @@ snapshots:
       '@eslint/core': 0.10.0
       levn: 0.4.1
 
-  '@eth-optimism/super-cli@0.0.10(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))':
+  '@eth-optimism/super-cli@0.0.11(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))':
     dependencies:
       '@eth-optimism/viem': 0.3.2(viem@2.23.1(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
       '@hono/node-server': 1.13.8(hono@4.7.0)
@@ -7065,7 +7065,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  supersim@0.1.0-alpha.41:
+  supersim@0.1.0-alpha.42:
     dependencies:
       follow-redirects: 1.15.9
     transitivePeerDependencies:
