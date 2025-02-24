@@ -186,6 +186,31 @@ These contracts are not production ready.
 - Interop recipes / guides: https://docs.optimism.io/app-developers/tutorials/interop
 - Superchain Dev Console: https://console.optimism.io/
 
+## 😎 Moooaaar examples
+
+Want to see more? Here are more example crosschain apps for inspiration / patterns!
+
+- ⚡ [Crosschain Flash Loan](https://github.com/ethereum-optimism/superchain-starter-xchain-flash-loan-example)
+   - Dependent cross-chain messages (compose multiple cross-domain messages)
+   - Using SuperchainTokenBridge for cross-chain ERC20 transfers
+   - Multichain lending vaults using `L2ToL2CrossDomainMessenger`
+- 💸 [Multisend](https://github.com/ethereum-optimism/superchain-starter-multisend)
+   - How to set up cross-chain callbacks (contract calling itself on another chain)
+   - Using SuperchainWETH for cross-chain ETH transfers
+   - Dependent cross-chain messages (compose multiple cross-domain messages)
+- 🪙 [SuperchainERC20](https://github.com/ethereum-optimism/superchain-starter-superchainerc20)
+   - Using ERC-7802 interface for SuperchainERC20 tokens
+   - How to upgrade existing ERC20s into SuperchainERC20
+   - Minting supply on only one chain
+   - Deterministic address deployment on all chains
+- 🏓 [CrossChainPingPong](https://docs.optimism.io/app-developers/tutorials/interop/contract-calls)
+   - Simple example of passing state between multiple chains using cross domain messenger
+   - How to set up cross-chain callbacks (contract calling itself on another chain)
+- 🕹️ [CrossChainTicTacToe](https://docs.optimism.io/app-developers/tutorials/interop/event-reads)
+   - Allows players to play each other from any chain **without** cross-chain calls, instead relying on cross-chain event reading
+   - Creating horizontally scalable apps with interop
+   
+
 ## ⚖️ License
 
 Files are licensed under the [MIT license](./LICENSE).
