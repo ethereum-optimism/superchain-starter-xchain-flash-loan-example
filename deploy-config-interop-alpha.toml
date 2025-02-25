@@ -4,17 +4,17 @@ network = "interop-alpha"
 
 [[contracts]]
 id = "FlashLoanVault"
-salt = "test-salt-0"
+salt = "test-salt-1"
 forge_artifact_path = "contracts/out/FlashLoanVault.sol/FlashLoanVault.json"
 
 [[contracts]]
 id = "CrosschainFlashLoanToken"
-salt = "test-salt-0"
+salt = "test-salt-1"
 forge_artifact_path = "contracts/out/CrosschainFlashLoanToken.sol/CrosschainFlashLoanToken.json"
 
 [[contracts]]
 id = "CrosschainFlashLoanBridge"
-salt = "test-salt-0"
+salt = "test-salt-1"
 forge_artifact_path = "contracts/out/CrosschainFlashLoanBridge.sol/CrosschainFlashLoanBridge.json"
 constructor_args = [
   "{{CrosschainFlashLoanToken.address}}",
@@ -25,5 +25,5 @@ constructor_args = [
 
 [[contracts]]
 id = "TargetContract"
-salt = "test-salt-0"
+salt = "test-salt-1"
 forge_artifact_path = "contracts/out/TargetContract.sol/TargetContract.json"
