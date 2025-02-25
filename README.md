@@ -154,6 +154,17 @@ For reference, here are some examples of this separation in production applicati
 - Across: [Across contracts](https://github.com/across-protocol/contracts), [Across frontend](https://github.com/across-protocol/frontend)
 - Farcaster: [Farcaster contracts](https://github.com/farcasterxyz/contracts)
 
+## 🐛 Debugging
+
+Use the error selectors below to identify the cause of reverts.
+
+- For a complete list of error signatures from interoperability contracts, see [abi-signatures.md](https://github.com/ethereum-optimism/ecosystem/blob/main/packages/viem/docs/abi-signatures.md)
+- Examples:
+  - `TargetCallFailed()`: `0xeda86850`
+  - `MessageAlreadyRelayed`: `0x9ca9480b`
+  - `Unauthorized()`: `0x82b42900`
+ 
+ 
 ## 📚 More resources
 
 - Interop recipes / guides: https://docs.optimism.io/app-developers/tutorials/interop
