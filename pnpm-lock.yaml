@@ -70,8 +70,8 @@ importers:
         specifier: ^9.19.0
         version: 9.20.0
       '@eth-optimism/super-cli':
-        specifier: ^0.0.12
-        version: 0.0.12(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))
+        specifier: ^0.0.13
+        version: 0.0.13(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
@@ -417,8 +417,8 @@ packages:
     resolution: {integrity: sha512-lB05FkqEdUg2AA0xEbUz0SnkXT1LcCTa438W4IWTUh4hdOnVbQyOJ81OrDXsJk/LSiJHubgGEFoR5EHq1NsH1A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eth-optimism/super-cli@0.0.12':
-    resolution: {integrity: sha512-nR2N6Ybr/KRxl9X+Mbh1oUSWyoWczJ/gbMP4oPBRTJen3bAqO4xLg3Nkm9QsFf12qlKc6Z90r+hUZEzNkFAiuQ==}
+  '@eth-optimism/super-cli@0.0.13':
+    resolution: {integrity: sha512-mGtoI2orEa1pOqXAMfXJFOwdan4TG80uK/UifM1yABKfkLrgQ1/hIg9RFv9DR4ihe4CkFNYKJ+5xdtQCsZkkEg==}
     engines: {node: '>=18.20'}
     hasBin: true
 
@@ -3952,7 +3952,7 @@ snapshots:
       '@eslint/core': 0.10.0
       levn: 0.4.1
 
-  '@eth-optimism/super-cli@0.0.12(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))':
+  '@eth-optimism/super-cli@0.0.13(@tanstack/query-core@5.66.0)(@types/react@18.3.18)(bufferutil@4.0.9)(typescript@5.7.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1))':
     dependencies:
       '@eth-optimism/viem': 0.3.2(viem@2.23.1(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.1))
       '@hono/node-server': 1.13.8(hono@4.7.0)
