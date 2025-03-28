@@ -36,10 +36,10 @@ const CONFIG = {
   destinationChain: supersimL2B,
   contracts: {
     counter: {
-      address: '0x1b68f70248d6d2176c88d9285564cd23173d41d3',
+      address: '0x704dd06427a37b65a1557d9a166f3c1d79026386',
     },
     counterIncrementer: {
-      address: '0x52f498e866bdebec46b6939080a66332e2a1cb1e',
+      address: '0xa63abb212e7e2fa1238d7f0a5baccdba66d02392',
     },
   },
 } as const;
