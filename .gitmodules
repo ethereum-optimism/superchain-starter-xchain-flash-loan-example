@@ -1,6 +1,3 @@
-[submodule "contracts/lib/forge-std"]
-	path = contracts/lib/forge-std
-	url = https://github.com/foundry-rs/forge-std
 [submodule "contracts/lib/interop-lib"]
 	path = contracts/lib/interop-lib
 	url = https://github.com/ethereum-optimism/interop-lib
@@ -13,3 +10,6 @@
 [submodule "contracts/lib/solady"]
 	path = contracts/lib/solady
 	url = https://github.com/vectorized/solady
+[submodule "contracts/lib/forge-std"]
+	path = contracts/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std.git
