@@ -94,8 +94,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       supersim:
-        specifier: 0.1.0-alpha.43
-        version: 0.1.0-alpha.43
+        specifier: 0.1.0-alpha.44
+        version: 0.1.0-alpha.44
       typescript:
         specifier: ~5.7.2
         version: 5.7.3
@@ -2784,8 +2784,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  supersim@0.1.0-alpha.43:
-    resolution: {integrity: sha512-JWbw4vC871JRYjG+gwCRIdnXLAdB4HSDg4VTu1PLYpN3NNBIPEJp0AVk73RHfrmd4HliRUdm50921HZ6Leev7Q==}
+  supersim@0.1.0-alpha.44:
+    resolution: {integrity: sha512-uLlEbcUSneIpFnHFEFbrI1J6TXUsRzGj/5GESOQsz8XN1GkHgOJMAOgyq+fqPcnhDMRE9n+yjTObeWUQl52NFQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -6285,7 +6285,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  supersim@0.1.0-alpha.43:
+  supersim@0.1.0-alpha.44:
     dependencies:
       follow-redirects: 1.15.9
     transitivePeerDependencies:
