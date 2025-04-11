@@ -178,9 +178,9 @@ Want to see more? Here are more example crosschain apps for inspiration / patter
    - Dependent cross-chain messages (compose multiple cross-domain messages)
    - Using SuperchainTokenBridge for cross-chain ERC20 transfers
    - Multichain lending vaults using `L2ToL2CrossDomainMessenger`
-- 💸 [Multisend](https://github.com/ethereum-optimism/superchain-starter-multisend)
+- 💸 [Multitransfer](https://github.com/ethereum-optimism/superchain-starter-xchain-eth-multitransfer)
    - How to set up cross-chain callbacks (contract calling itself on another chain)
-   - Using SuperchainWETH for cross-chain ETH transfers
+   - Using SuperchainETHBridge for cross-chain ETH transfers
    - Dependent cross-chain messages (compose multiple cross-domain messages)
 - 🪙 [SuperchainERC20](https://github.com/ethereum-optimism/superchain-starter-superchainerc20)
    - Using ERC-7802 interface for SuperchainERC20 tokens
